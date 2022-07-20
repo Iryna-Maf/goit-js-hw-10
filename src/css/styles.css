@@ -18,3 +18,11 @@ body {
   max-width: 320px;
   margin-bottom: 16px;
 }
+.country.style {
+  display: flex;
+  align-items: center;
+}
+.name {
+  font-weight: 700;
+  font-size: 32;
+}

@@ -39,7 +39,7 @@ function renderContent(countries) {
     renderCountryList(countries);
     return;
   }
-  renderCountryList(countries);
+  // renderCountryList(countries);
   renderCountry(countries[0]);
 }
 
@@ -48,7 +48,7 @@ function renderCountryList(countries) {
     .map(({ name, flags: { svg } } = {}) => {
       return `<li class="country">
 
-            <img src = "${svg}" height="200" width="200"/>
+            <img src = "${svg}" height="150" width="175"/>
 
           <p><b>Country</b>: ${name.common}</p>
         </li>`;
@@ -59,14 +59,16 @@ function renderCountryList(countries) {
 
 function renderCountry(obj) {
   console.log(obj);
-  const { capital, population, languages } = obj;
+  const { flags, name, capital, population, languages } = obj;
 
   console.log('Hello');
-  const countryContent = `<div class="country style">  
-  <p><b>Capital</b>:${capital}</p>
+  const countryContent = `<div class="country style">
+ <img src='${flags.svg}' height='40' width='60' class='flag_country' />
+ <p class='name'>${name.common}</p>  
+</div>
+<p><b>Capital</b>:${capital}</p>
 <p><b>Population</b>:${population} </p>
-<p><b>Languages</b>:${Object.values(obj.languages)};
-</div>`;
+<p><b>Languages</b>:${Object.values(obj.languages)};`;
 
   countryInfo.innerHTML = countryContent;
 }
